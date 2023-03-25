@@ -1,0 +1,252 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InterfaceController!{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="{{ asset('assets/css/interface.css') }}">
+
+{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> #}
+
+<script language = "javascript" 
+      src = "{{ asset('assets/js/jquery-3.6.1.slim.min.js') }}"></script> 
+
+<script language = "javascript" 
+      src = "{{ asset('assets/js/jquery-3.6.1.min.js') }}"></script> 
+      
+<script language = "javascript"
+src="{{ asset('assets/js/interface.js') }}"
+defer>
+</script>
+
+<script>
+
+var full_url = document.URL; // Get current url
+var url_array = full_url.split('/') // Split the string into an array with / as separator
+var org_Id = url_array[url_array.length-1];  // Get the last part of the array (-1)
+</script>
+
+
+<body class="body" id="body">
+{# <div id="" style="overflow:scroll; height:100px;width:100px"></div> #}
+
+            <div class="title_div" >
+
+                <img id="logo" src="{{asset('assets/img/LOGO_CEM.png')}}" width="156" height="56">
+
+                <div id="bpmn_title" >Business Process Modeling and Notation</div>
+
+
+               
+            
+            </div>
+                
+
+
+        <div id="plane">
+            <div class="point" id="point1"></div>
+            <div class="point" id="point2"></div>
+            {# <div id="line1"></div>
+            <div id="line12"></div> #}
+        </div>
+
+        
+
+        {# <div id="deletee" >delete</div> #}
+
+        <div class="drag_div">
+
+            <div class="organisation" >
+            
+
+            <div class="example-wrapper">
+            {{ form_start(form) }}
+        
+
+            <div class="form-group">
+                {{ form_label(form.nameOrganisation) }}
+                {{ form_widget(form.nameOrganisation , {'attr': {'class':'nameChampOrga'}}) }}
+                <div class="form-error">
+                    {{ form_errors(form.nameOrganisation) }}
+                </div>
+            </div>
+
+   
+
+    <div class="submitOrg">
+        {{ form_row(form.submit, {'attr': {'class':'btnSubmOrg'}}) }}
+    </div>
+{{ form_end(form) }}
+
+<table id="tableOrg" class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th scope="col">N° </th>
+                    <th scope="col">Name</th>
+                    
+                    <th scope="col">Edition</th>
+                    <th scope="col">Suppression</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for Org in Organisation %}
+           
+                <tr class="table-primary">
+                    <th scope="row">{{ Org.id }}</th>
+                    <td> <a href="{{ path('app_interface', {id: Org.id} )}}"  class="dataBTN">{{ Org.nameOrganisation }}</a> </td>
+                   
+                    <td>
+                        <a href="{{ path('app_org.edit', {urlId: idUrl, id: Org.id} )}}" class="modifBTN">Modifier</a>
+                       
+                    </td>
+                    <td>
+                        <a href="{{ path('app_org.delete', { id: Org.id } )}}" class="deleteBTN">Supprimer</a>
+                        {# to do #}
+                    </td>
+                </tr>
+            {% endfor %}
+                 
+
+            </tbody>
+        </table>
+</div>
+            </div>
+        
+        <div id="bgLoading">
+            <div id="loadingIMG" >
+                <img src="{{asset('assets/img/bpm logo/loading.gif')}}" alt="">
+            </div>
+        </div>
+
+        
+
+            <div class="palette" id="palette">
+           
+                <div class="palet">Palette</div>
+
+                {# <div class="ses" >
+                    <img id="drag1" class="move" src="{{asset('assets/img/img.png')}}"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+                    
+                </div> #}
+
+
+                <div>
+                       <div>---- gateway ----</div>
+
+                        <img id="AND" class="move" src="{{asset('assets/img/bpm logo/gateways/AND.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="inclusive" class="move" src="{{asset('assets/img/bpm logo/gateways/inclusive.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="XOR" class="move" src="{{asset('assets/img/bpm logo/gateways/XOR.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                </div>
+
+                <div>
+                       <div>---- Swimlanes ----</div>
+                        <img id="pool" class="move" src="{{asset('assets/img/bpm logo/swimlane/pool.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="20">
+                        <img id="lane" class="move" src="{{asset('assets/img/bpm logo/swimlane/lane.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="20">
+                        
+                </div>
+                    
+                <div>
+                       <div>---- tasks ----</div>
+
+                        <img id="abstract_task" class="move" src="{{asset('assets/img/bpm logo/tasks/abstract_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="human" class="move" src="{{asset('assets/img/bpm logo/tasks/human.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="receive_task" class="move" src="{{asset('assets/img/bpm logo/tasks/receive_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="script_task" class="move" src="{{asset('assets/img/bpm logo/tasks/script_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="send_task" class="move" src="{{asset('assets/img/bpm logo/tasks/send_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="service_task" class="move" src="{{asset('assets/img/bpm logo/tasks/service_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+              
+                </div>
+
+
+                <div>
+                        <div>---- activities ----</div>
+
+                        <img id="Call_activity" class="move" src="{{asset('assets/img/bpm logo/activities/Call_activity.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="Event_subprocess" class="move" src="{{asset('assets/img/bpm logo/activities/Event_subprocess.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        
+                </div>
+
+                <div>
+                        <div>---- Start Events -----</div>
+
+                        <img id="start_message" class="move" src="{{asset('assets/img/bpm logo/start events/start_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="start_signal" class="move" src="{{asset('assets/img/bpm logo/start events/start_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="start_timer" class="move" src="{{asset('assets/img/bpm logo/start events/start_timer.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="startnow" class="move" src="{{asset('assets/img/bpm logo/start events/startnow.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+              
+                </div>
+
+                <div>
+                        <div>---- Int Events -----</div>
+
+                        <img id="catch_link" class="move" src="{{asset('assets/img/bpm logo/int events/catch_link.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="catch_message" class="move" src="{{asset('assets/img/bpm logo/int events/catch_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="catch_signal" class="move" src="{{asset('assets/img/bpm logo/int events/catch_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="throw_link" class="move" src="{{asset('assets/img/bpm logo/int events/throw_link.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="throw_message" class="move" src="{{asset('assets/img/bpm logo/int events/throw_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="throw_signal" class="move" src="{{asset('assets/img/bpm logo/int events/throw_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="timer" class="move" src="{{asset('assets/img/bpm logo/int events/timer.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        
+                </div>
+
+                <div>
+                        <div>---- End Events -----</div>
+
+                        <img id="end_error" class="move" src="{{asset('assets/img/bpm logo/end events/end_error.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="end_message" class="move" src="{{asset('assets/img/bpm logo/end events/end_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="end_signal" class="move" src="{{asset('assets/img/bpm logo/end events/end_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="endnow" class="move" src="{{asset('assets/img/bpm logo/end events/endnow.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="terminate_end_event" class="move" src="{{asset('assets/img/bpm logo/end events/terminate_end_event.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        
+                </div>
+
+                
+
+            </div>
+            
+            <div class="concept">
+
+                <div class="saved_BPMN">
+                    <div id="save" ondblclick="lets(event)">Sauvegarde</div>
+            
+                    <div id="deletee" onclick = "deleteElem(event)">Supprimer</div>
+
+                    <div id="deletee" onclick = "deleteElemAll(event)">Supprimer Tout</div>
+                </div>
+            
+
+                <div  id="div1" 
+                ondrop="moveDrag(event)" 
+                 ondragover="allowDrop(event)"
+                 >
+
+              
+                            
+                </div>
+                 
+
+                <div id="editKque">
+                
+
+                </div>
+
+                <div id="output">
+                    <div id="outputTxt">Output</div>
+
+                    <div id="outputContent">   </div>
+
+                </div>
+
+            </div>
+
+         
+        
+        </div>
+        
+  
+
+</body>
+
+{% endblock %}

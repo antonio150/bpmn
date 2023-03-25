@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrgController!{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('assets/css/interface.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/groupeOrg.css') }}">
+<div class="title_div" >
+
+                <img id="logo" src="{{asset('assets/img/LOGO_CEM.png')}}" width="146" height="56">
+
+                <div id="bpmn_title" >Organisation</div>
+            
+            </div>
+
+<div class="ContentOrg">  
+    {{ form_start(form) }}
+   
+
+    <div class="form-group">
+        {{ form_label(form.nameOrganisation) }}
+        {{ form_widget(form.nameOrganisation, {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.nameOrganisation) }}
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        {{ form_row(form.submit, {'attr': {'class':'btnSubmOrg'}}) }}
+    </div>
+{{ form_end(form) }}
+
+<table id="customers" class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Name</th>
+                    
+                    {# <th scope="col">Edition</th>
+                    <th scope="col">Suppression</th> #}
+                </tr>
+            </thead>
+            <tbody>
+
+            <div>
+        <a href="{{ path('app_groupe_org', { id: orgId } )}}" class="btn btn-info">Suivant</a>
+    </div>
+
+            {% for Org in Organisation %}
+           
+                <tr class="table-primary">
+                    <th scope="row">{{ Org.id }}</th>
+                    <td>{{ Org.nameOrganisation }} </td>
+                   
+                    {# <td>
+                        <a href="{{ path('app_org.edit', { id: Org.id } )}}" class="btn btn-info">Modifier</a>
+                       
+                    </td> #}
+                    <td>
+                        {# <a href="{{ path('app_org.delete', { id: Org.id } )}}" class="btn btn-warning">Supprimer</a> #}
+                        {# to do #}
+                    </td>
+                </tr>
+            {% endfor %}
+                 
+
+            </tbody>
+        </table>
+</div>
+{% endblock %}

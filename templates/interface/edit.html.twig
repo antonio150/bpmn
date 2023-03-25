@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InterfaceController!{% endblock %}
+
+
+
+{% block body %}
+
+<link rel="stylesheet" href="{{ asset('assets/css/interface.css') }}">
+
+{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> #}
+
+<script language = "javascript" 
+      src = "{{ asset('assets/js/jquery-3.6.1.slim.min.js') }}"></script> 
+
+<script language = "javascript" 
+      src = "{{ asset('assets/js/jquery-3.6.1.min.js') }}"></script> 
+      
+<script language = "javascript"
+src="{{ asset('assets/js/editInterface.js') }}"
+defer>
+</script>
+
+
+<div class="body" id="body">
+
+{# <a id = "loadstudent" href = "#">Load student information</a>  
+   </br> 
+   </br>  
+   
+   <table class = "table">  
+      <tbody id = "student">qq</tbody>  
+   </table>
+
+<div id="demo">
+<h1>The XMLHttpRequest Object</h1>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div> #}
+
+<div id="let" ondblclick="lets(event)">Verify</div>
+
+        <div id="plane">
+            <div class="point" id="point1"></div>
+            <div class="point" id="point2"></div>
+            {# <div id="line1"></div>
+            <div id="line12"></div> #}
+        </div>
+    
+        <div id="deletee" onclick = "deleteElem(event)">delete</div>
+
+        {# <div id="deletee" >delete</div> #}
+
+        <div class="drag_div">
+
+        
+
+            <div class="palette">
+           
+                <div class="ses" id="image">
+                    <img class="move" src="{{asset('assets/img/img.png')}}"  draggable="false" width="336" height="69">
+                </div>
+
+                {# <div class="ses" >
+                    <img id="drag1" class="move" src="{{asset('assets/img/img.png')}}"  draggable="true" ondragstart="drag(event)" width="336" height="69">
+                    
+                </div> #}
+
+
+                <div>
+                       <div>---- gateway ----</div>
+
+                        <img id="AND" class="move" src="{{asset('assets/img/bpm logo/gateways/AND.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="inclusive" class="move" src="{{asset('assets/img/bpm logo/gateways/inclusive.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="XOR" class="move" src="{{asset('assets/img/bpm logo/gateways/XOR.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                </div>
+
+                <div>
+                       <div>---- Swimlanes ----</div>
+                        <img id="pool" class="move" src="{{asset('assets/img/bpm logo/swimlane/pool.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="20">
+                        <img id="lane" class="move" src="{{asset('assets/img/bpm logo/swimlane/lane.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="20">
+                        
+                </div>
+                    
+                <div>
+                       <div>---- tasks ----</div>
+
+                        <img id="abstract_task" class="move" src="{{asset('assets/img/bpm logo/tasks/abstract_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="human" class="move" src="{{asset('assets/img/bpm logo/tasks/human.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="receive_task" class="move" src="{{asset('assets/img/bpm logo/tasks/receive_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="script_task" class="move" src="{{asset('assets/img/bpm logo/tasks/script_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="send_task" class="move" src="{{asset('assets/img/bpm logo/tasks/send_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="service_task" class="move" src="{{asset('assets/img/bpm logo/tasks/service_task.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+              
+                </div>
+
+
+                <div>
+                        <div>---- activities ----</div>
+
+                        <img id="Call_activity" class="move" src="{{asset('assets/img/bpm logo/activities/Call_activity.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        <img id="Event_subprocess" class="move" src="{{asset('assets/img/bpm logo/activities/Event_subprocess.png')}}" ondragstart="drag(event)" draggable="true" width="56" height="36">
+                        
+                </div>
+
+                <div>
+                        <div>---- Start Events -----</div>
+
+                        <img id="start_message" class="move" src="{{asset('assets/img/bpm logo/start events/start_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="start_signal" class="move" src="{{asset('assets/img/bpm logo/start events/start_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="start_timer" class="move" src="{{asset('assets/img/bpm logo/start events/start_timer.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="startnow" class="move" src="{{asset('assets/img/bpm logo/start events/startnow.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+              
+                </div>
+
+                <div>
+                        <div>---- Int Events -----</div>
+
+                        <img id="catch_link" class="move" src="{{asset('assets/img/bpm logo/int events/catch_link.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="catch_message" class="move" src="{{asset('assets/img/bpm logo/int events/catch_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="catch_signal" class="move" src="{{asset('assets/img/bpm logo/int events/catch_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="throw_link" class="move" src="{{asset('assets/img/bpm logo/int events/throw_link.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="throw_message" class="move" src="{{asset('assets/img/bpm logo/int events/throw_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="throw_signal" class="move" src="{{asset('assets/img/bpm logo/int events/throw_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="timer" class="move" src="{{asset('assets/img/bpm logo/int events/timer.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        
+                </div>
+
+                <div>
+                        <div>---- End Events -----</div>
+
+                        <img id="end_error" class="move" src="{{asset('assets/img/bpm logo/end events/end_error.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="end_message" class="move" src="{{asset('assets/img/bpm logo/end events/end_message.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="end_signal" class="move" src="{{asset('assets/img/bpm logo/end events/end_signal.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="endnow" class="move" src="{{asset('assets/img/bpm logo/end events/endnow.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        <img id="terminate_end_event" class="move" src="{{asset('assets/img/bpm logo/end events/terminate_end_event.png')}}" ondragstart="drag(event)" draggable="true" width="36" height="36">
+                        
+                </div>
+
+                
+
+            </div>
+            
+            <div class="concept">
+                <div  id="div1" 
+                ondrop="moveDrag(event)" 
+                 ondragover="allowDrop(event)"
+                 >
+
+                 {# <div id="pooldrag">
+
+                    <div id="poolName">
+                    </div>
+
+                    <div id="poolLnae">
+
+                        <div id="actio">
+                                <div id="plus">plus</div>
+                                <div id="moins">moins</div>
+                        </div>
+                    </div>
+                 
+                 </div> #}
+                
+             
+
+                
+                
+                            
+                </div>
+                 
+
+                <div id="editKque">
+                
+
+                {# <div id = "start_evRender" style="display: none;">{{ render( controller('App\\Controller\\StartEvController::index') ) }}</div>
+                <div id = "stop_evRender" style="display: none;">{{ render( controller('App\\Controller\\StopEvController::index') ) }}</div>
+                <div id = "inter_evRender" style="display: none;">{{ render( controller('App\\Controller\\InterEvController::index') ) }}</div>
+                <div id = "laneRender" style="display: none;">{{ render( controller('App\\Controller\\LaneController::index') ) }}</div>
+                <div id = "poolRender" style="display: none;">{{ render( controller('App\\Controller\\PoolController::index') ) }}</div>
+                <div id = "gatewayRender" style="display: none;">{{ render( controller('App\\Controller\\GatewayController::index') ) }}</div>
+                <div id = "taskRender" style="display: none;">{{ render( controller('App\\Controller\\TaskController::index') ) }}</div>
+                <div id = "flowRender" style="display: none;">{{ render( controller('App\\Controller\\FlowController::index') ) }}</div> #}
+
+                {# <input type="text" name="" id="" value="asasa"> #}
+
+                </div>
+
+                        
+                {# <div  id="div1" ondrop="drop(event)"  ondragover="allowDrop(event)"></div> #}
+            </div>
+
+         
+        
+        </div>
+        
+  
+
+</div>
+
+{% endblock %}

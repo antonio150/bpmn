@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RolesOrgController!{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('assets/css/interface.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/groupeOrg.css') }}">
+<div class="title_div" >
+
+                <img id="logo" src="{{asset('assets/img/LOGO_CEM.png')}}" width="146" height="56">
+
+                <div id="bpmn_title" >Rôles Organisation</div>
+
+
+               
+            
+            </div>
+
+<div class="ContentOrg">
+     {{ form_start(form) }}
+   
+
+    <div class="form-group">
+        {{ form_label(form.namesRolesOrg) }}
+        {{ form_widget(form.namesRolesOrg , {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.namesRolesOrg) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.displaynameRolesOrg) }}
+        {{ form_widget(form.displaynameRolesOrg , {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.displaynameRolesOrg) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.descriptionRolesOrg) }}
+        {{ form_widget(form.descriptionRolesOrg , {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.descriptionRolesOrg) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_row(form.submit , {'attr': {'class':'btnSubmOrg'}}) }}
+    </div>
+
+   
+{{ form_end(form) }}
+
+<table id="customers" class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Display Name</th>
+                    <th scope="col">Description</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for roleOrg in rolesGroupeOrg %}
+           
+                <tr class="table-primary">
+                    <th scope="row">{{ roleOrg.id }}</th>
+                    <td>{{ roleOrg.namesRolesOrg }} </td>
+                    <td>{{ roleOrg.displaynameRolesOrg }} </td>
+                    <td>{{ roleOrg.descriptionRolesOrg }} </td>
+                   
+                </tr>
+            {% endfor %}
+                 
+
+            </tbody>
+        </table>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GroupeOrgController!{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('assets/css/interface.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/groupeOrg.css') }}">
+<div class="title_div" >
+
+                <img id="logo" src="{{asset('assets/img/LOGO_CEM.png')}}" width="146" height="56">
+
+                <div id="bpmn_title" >Groupe Organisation</div>
+
+
+               
+            
+            </div>
+
+<div class="ContentOrg">
+
+    {{ form_start(form) }}
+   
+
+     <div class="form-group">
+        {{ form_label(form.nameGroupeOrg ) }}
+        {{ form_widget(form.nameGroupeOrg, {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.nameGroupeOrg) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.displaynameGroupeOrg) }}
+        {{ form_widget(form.displaynameGroupeOrg, {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.displaynameGroupeOrg) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.descriptionNameGroupeOrg) }}
+        {{ form_widget(form.descriptionNameGroupeOrg, {'attr': {'class':'nameChampOrga'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.descriptionNameGroupeOrg) }}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        {{ form_row(form.submit , {'attr': {'class':'btnSubmOrg'}}) }}
+    </div>
+
+   
+{{ form_end(form) }}
+
+
+<table id="customers" class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Display Name</th>
+                    <th scope="col">Description</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for groupeOrg in groupeOrganisation %}
+           
+                <tr class="table-primary">
+                    <th scope="row">{{ groupeOrg.id }}</th>
+                    <td>{{ groupeOrg.nameGroupeOrg }} </td>
+                    <td>{{ groupeOrg.displaynameGroupeOrg }} </td>
+                    <td>{{ groupeOrg.descriptionNameGroupeOrg }} </td>
+                   
+                </tr>
+            {% endfor %}
+                 
+
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

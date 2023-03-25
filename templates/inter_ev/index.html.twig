@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InterEvController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {{ form_start(form) }}
+   
+
+    <div class="form-group">
+        {{ form_label(form.nameInter_Ev) }}
+        {{ form_widget(form.nameInter_Ev) }}
+        <div class="form-error">
+            {{ form_errors(form.nameInter_Ev) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.typeInterEv) }}
+        {{ form_widget(form.typeInterEv) }}
+        <div class="form-error">
+            {{ form_errors(form.typeInterEv) }}
+        </div>
+    </div>
+
+    
+  
+    
+
+    <div class="form-group">
+        {{ form_row(form.submit) }}
+    </div>
+
+   
+{{ form_end(form) }}
+</div>
+{% endblock %}

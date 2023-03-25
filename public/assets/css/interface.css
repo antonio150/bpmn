@@ -1,0 +1,288 @@
+body{
+ background-color: rgba(255, 9, 9, 0.646);
+ width: 100%;
+ height: 100%;
+}
+
+/* .title_div{
+  left: 15px;
+  position: absolute;
+  width: 110px;
+  border: none;
+  text-align: center;
+  display: flex;
+  font-size: 50px;
+} */
+
+#div1 {
+  position: relative;
+  top: 0px;
+  overflow:auto;
+  height:330px;
+  width:835px;
+  padding: 10px;
+  border: solid;
+  border-color: grey;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  border-top-width: 1px;
+  
+  
+}
+
+#div2 {
+  width: 390px;
+  height: 170px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  
+}
+
+.point
+{
+  width: 4px;
+  height: 4px;
+  /* position: relative; */
+}
+
+/* #line1 ,#line12{
+  background-color: black;
+  position: absolute;
+  height: 2px;
+} */
+
+.drag_div{
+  border: solid grey;
+  border-width: 1px;
+  
+  
+  display: flex;
+}
+
+.palette{
+  
+  top: 86.4px;
+  left: 255px;
+  background-color: white;
+  position: absolute;
+  border: solid red;
+  border-width: 1px;
+  width: 220px;
+  height: 520px;
+  padding: 15px;
+  position: absolute;
+}
+
+.concept{
+  position: absolute;
+  top: 87px;
+  left: 510px;
+  /* border: solid blue; */
+  border-width: 1px;
+  width: 860px;
+  height: 550px;
+  background-color: white;
+}
+
+#fleche{
+  width: 10px;
+  height: 5px;
+}
+
+
+#editKque{
+  position: absolute;
+  top: 400px;
+  width: 350px;
+  height: 25%;
+  border: solid 1px black;
+  padding: 10px;
+}
+
+.palet{
+  border:  solid ;
+  border-color: black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-width: 1px;
+  text-align: center;
+}
+
+#bpmn_title{
+  font-size: 50px;
+}
+
+.saved_BPMN{
+  display: flex;
+}
+
+.title_div{
+  display: flex;
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  left: 00px;
+  width: 1350px;
+  height: 60px;
+  background-color: white;
+  text-align: center;
+}
+
+.organisation{
+  position: absolute;
+  top: 87px;
+  left: 00px;
+  background-color: white;
+  padding: 10px;
+  overflow:scroll;
+  height:530px;
+  width:230px;
+}
+
+.modifBTN{
+  text-decoration: none;
+  color: white;
+  border-radius: 2px;
+  padding: 2px;
+  background-color: rgba(23, 71, 229, 0.757);
+}
+
+.deleteBTN{
+  text-decoration: none;
+  color: white;
+  border-radius: 2px;
+  padding: 2px;
+  background-color: rgba(245, 10, 30, 0.615);
+}
+
+.dataBTN{
+  text-decoration: none;
+  /* border-radius: 2px; */
+  padding: 2px;
+}
+
+.btnSubmOrg{
+  color: white;
+  border: none;
+  padding: 3px;
+  margin: 3px;
+  background-color: rgba(23, 71, 229, 0.757);
+}
+
+.nameChampOrga{
+  padding: 3px;
+  margin: 3px;
+  width: 90%;
+  border-radius: 4px;
+  border-color: rgba(23, 71, 229, 0.757);
+}
+
+#save{
+  color: white;
+  border: none;
+  padding: 6px;
+  margin: 6px;
+  background-color: rgba(49, 159, 46, 0.907);
+}
+
+#deletee{
+ 
+  border: none;
+  padding: 6px;
+  margin: 6px;
+  color: white;
+  background-color: rgba(237, 2, 2, 0.793);
+}
+
+#tableOrg {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#tableOrg td, #tableOrg th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tableOrg tr:nth-child(even){background-color: #f2f2f2;}
+
+#tableOrg tr:hover {background-color: #ddd;}
+
+#tableOrg th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(23, 71, 229, 0.757);;
+  color: white;
+}
+
+#output{
+  position: absolute;
+  top: 400px;
+  left: 380px;
+  width: 455px;
+  height: 25%;
+  border: solid 1px black;
+  padding: 10px;
+}
+
+#outputTxt{
+  text-align: center;
+  width: auto;
+  border:  solid ;
+  border-color: black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-width: 1px;
+}
+
+#outputContent{
+  overflow:auto;
+  height:120px;
+  width:455px;
+  list-style-type: decimal;
+}
+
+#outputContent.li{
+  list-style-type: decimal;
+}
+
+.rectangleee{
+  width: 46px;
+  height: 26px;
+}
+
+.caree{
+  width: 26px;
+  height: 26px;
+}
+
+.action{
+  width: 24px;
+  height: 24px;
+ 
+}
+
+#bgLoading{
+  width: 100%;
+  height: 100%;
+  z-index: 309;
+  position: fixed;
+  display: none;
+  background-color: rgba(9, 9, 9, 0.274);
+  background-size: cover;
+  padding-left: 500px;
+  padding-top: 250px;
+}
+
+#loadingIMG{
+  
+  width: 500px;
+  height: 500px;
+  top: 500px;
+  left: 500px;
+}

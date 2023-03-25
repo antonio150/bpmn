@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrgController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {{ form_start(form) }}
+   
+
+    <div class="form-group">
+        {{ form_label(form.nameOrganisation) }}
+        {{ form_widget(form.nameOrganisation) }}
+        <div class="form-error">
+            {{ form_errors(form.nameOrganisation) }}
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        {{ form_row(form.submit) }}
+    </div>
+{{ form_end(form) }}
+
+<table class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Name</th>
+                    
+                    <th scope="col">Edition</th>
+                    <th scope="col">Suppression</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for Org in Organisation %}
+           
+                <tr class="table-primary">
+                    <th scope="row">{{ Org.id }}</th>
+                    <td>{{ Org.nameOrganisation }} </td>
+                   
+                    <td>
+                        <a href="{{ path('app_org.edit', { id: Org.id } )}}" class="btn btn-info">Modifier</a>
+                       
+                    </td>
+                    <td>
+                        {# <a href="{{ path('app_org.delete', { id: Org.id } )}}" class="btn btn-warning">Supprimer</a> #}
+                        {# to do #}
+                    </td>
+                </tr>
+            {% endfor %}
+                 
+
+            </tbody>
+        </table>
+</div>
+{% endblock %}
