@@ -1,6 +1,9 @@
 
 
 
+// Variable de base URL - s'adapte automatiquement au serveur actuel
+var baseUrl = window.location.origin + '/';
+
 var full_url = document.URL; // Get current url
 var url_array = full_url.split('/') // Split the string into an array with / as separator
 var org_Id = url_array[url_array.length-1];  // Get the last part of the array (-1)
@@ -273,7 +276,7 @@ const plusName = document.createElement("img");
 plusName.setAttribute("id", ("poolplus"+iPool));
 plusName.setAttribute("draggable", "false");
 plusName.setAttribute("class", "action");
-plusName.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/plus2.png");
+plusName.setAttribute("src", baseUrl + "assets/img/bpm%20logo/plus2.png");
 const plusElem = document.getElementById("actioPool"+iPool);
 plusElem.appendChild(plusName);
 
@@ -288,7 +291,7 @@ const moinsName = document.createElement("img");
 moinsName.setAttribute("id", ("poolmoins"+iPool));
 moinsName.setAttribute("draggable", "false");
 moinsName.setAttribute("class", "action");
-moinsName.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/moins2.png");
+moinsName.setAttribute("src", baseUrl + "assets/img/bpm%20logo/moins2.png");
 const moinsElem = document.getElementById("actioPool"+iPool);
 moinsElem.appendChild(moinsName);
 
@@ -482,7 +485,7 @@ moinsElem.appendChild(moinsName);
           plusNameLane.setAttribute("id", ("lanePlus"+iLane));
           plusNameLane.setAttribute("draggable", "false");
           plusNameLane.setAttribute("class", "action");
-          plusNameLane.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/plus1.png");
+          plusNameLane.setAttribute("src", baseUrl + "assets/img/bpm%20logo/plus1.png");
           plusNameLane.setAttribute("onmousedown", "editKqueFuncLane(event)");
 
           const plusElemLane = document.getElementById(actioLanePoolId);
@@ -497,7 +500,7 @@ moinsElem.appendChild(moinsName);
           moinsNameLane.setAttribute("id", ("laneMoins"+iLane));
           moinsNameLane.setAttribute("draggable", "false");
           moinsNameLane.setAttribute("class", "action");
-          moinsNameLane.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/moins1.png");
+          moinsNameLane.setAttribute("src", baseUrl + "assets/img/bpm%20logo/moins1.png");
           
           moinsNameLane.setAttribute("onmousedown", "editKqueFuncLane(event)");
 
@@ -760,7 +763,7 @@ moinsElem.appendChild(moinsName);
         div.setAttribute("draggable", "false");
         div.setAttribute("onmousedown", "funcFlecheInit(event)");
         // div.setAttribute("onmouseleave", "leaveFlec(event)");
-        div.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/fleche.png");
+        div.setAttribute("src", baseUrl + "assets/img/bpm%20logo/fleche.png");
 
         divFleche.appendChild(div);
 
@@ -1073,7 +1076,7 @@ moinsElem.appendChild(moinsName);
         div.setAttribute("draggable", "false");
         div.setAttribute("onmousedown", "funcFlecheInit(event)");
         // div.setAttribute("onmouseleave", "leaveFlec(event)");
-        div.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/fleche.png");
+        div.setAttribute("src", baseUrl + "assets/img/bpm%20logo/fleche.png");
 
         divFleche.appendChild(div);
 
@@ -1390,7 +1393,7 @@ moinsElem.appendChild(moinsName);
         div.setAttribute("draggable", "false");
         div.setAttribute("onmousedown", "funcFlecheInit(event)");
         // div.setAttribute("onmouseleave", "leaveFlec(event)");
-        div.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/fleche.png");
+        div.setAttribute("src", baseUrl + "assets/img/bpm%20logo/fleche.png");
 
         divFleche.appendChild(div);
 
@@ -1703,7 +1706,7 @@ moinsElem.appendChild(moinsName);
         div.setAttribute("draggable", "false");
         div.setAttribute("onmousedown", "funcFlecheInit(event)");
         // div.setAttribute("onmouseleave", "leaveFlec(event)");
-        div.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/fleche.png");
+        div.setAttribute("src", baseUrl + "assets/img/bpm%20logo/fleche.png");
 
         divFleche.appendChild(div);
 
@@ -2024,7 +2027,7 @@ moinsElem.appendChild(moinsName);
         div.setAttribute("draggable", "false");
         div.setAttribute("onmousedown", "funcFlecheInit(event)");
         // div.setAttribute("onmouseleave", "leaveFlec(event)");
-        div.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/fleche.png");
+        div.setAttribute("src", baseUrl + "assets/img/bpm%20logo/fleche.png");
 
         divFleche.appendChild(div);
 
@@ -2385,7 +2388,7 @@ const plusName = document.createElement("img");
 plusName.setAttribute("id", ("poolplus"+iPool));
 plusName.setAttribute("draggable", "false");
 plusName.setAttribute("class", "action");
-plusName.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/plus2.png");
+plusName.setAttribute("src", baseUrl + "assets/img/bpm%20logo/plus2.png");
 const plusElem = document.getElementById("actioPool"+iPool);
 plusElem.appendChild(plusName);
 
@@ -2400,7 +2403,7 @@ const moinsName = document.createElement("img");
 moinsName.setAttribute("id", ("poolmoins"+iPool));
 moinsName.setAttribute("draggable", "false");
 moinsName.setAttribute("class", "action");
-moinsName.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/moins2.png");
+moinsName.setAttribute("src", baseUrl + "assets/img/bpm%20logo/moins2.png");
 const moinsElem = document.getElementById("actioPool"+iPool);
 moinsElem.appendChild(moinsName);
           const textmoins = document.createTextNode("moins");
@@ -2594,7 +2597,7 @@ moinsElem.appendChild(moinsName);
           plusNameLane.setAttribute("id", ("lanePlus"+iLane));
           plusNameLane.setAttribute("draggable", "false");
           plusNameLane.setAttribute("class", "action");
-          plusNameLane.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/plus1.png");
+          plusNameLane.setAttribute("src", baseUrl + "assets/img/bpm%20logo/plus1.png");
           plusNameLane.setAttribute("onmousedown", "editKqueFuncLane(event)");
 
           const plusElemLane = document.getElementById(actioLanePoolId);
@@ -2609,7 +2612,7 @@ moinsElem.appendChild(moinsName);
           moinsNameLane.setAttribute("id", ("laneMoins"+iLane));
           moinsNameLane.setAttribute("draggable", "false");
           moinsNameLane.setAttribute("class", "action");
-          moinsNameLane.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/moins1.png");
+          moinsNameLane.setAttribute("src", baseUrl + "assets/img/bpm%20logo/moins1.png");
           
           moinsNameLane.setAttribute("onmousedown", "editKqueFuncLane(event)");
 
@@ -2889,7 +2892,7 @@ function drawActivity(event, imgId, pathImgId) {
         div.setAttribute("draggable", "false");
         div.setAttribute("onmousedown", "funcFlecheInit(event)");
         // div.setAttribute("onmouseleave", "leaveFlec(event)");
-        div.setAttribute("src", "https://127.0.0.1:8000/assets/img/bpm%20logo/fleche.png");
+        div.setAttribute("src", baseUrl + "assets/img/bpm%20logo/fleche.png");
 
         divFleche.appendChild(div);
 
@@ -3060,17 +3063,7 @@ function drawActivity(event, imgId, pathImgId) {
         
         
         const nameLane = document.getElementById("nameTxt"+typeElem).value;
-
-        
-
-
-
       }
-
-      
-        
-
-
     }
     
   }
@@ -4840,7 +4833,7 @@ function loadDoc() {
       this.responseText;
     }
   };
-  xhttp.open("POST", "https://127.0.0.1:8000/groupe/edit/12/4", true);
+  xhttp.open("POST", baseUrl + "groupe/edit/12/4", true);
   xhttp.send();
 }
 
